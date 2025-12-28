@@ -1,0 +1,16 @@
+=== KALMAN FILTER PAIR PRODUCTION REPORT (RUN 8) ===
+Note: Run 8 (Cone Density + Local PCA 20 pts)
+Data Source: C:\Users\Korisnik\PycharmProjects\gammaAIModel\data-samples\local_data\pair
+Files Processed: 157
+
+--- PARAMETERS ---
+dt: 1.0
+Q_scale: 0.001
+R_scale: 0.1
+
+--- RESULTS (Angle Error) ---
+Mean:   32.0595 deg
+Median: 21.6246 deg
+StdDev: 31.2269 deg
+Min:    2.6632 deg
+Max:    152.2740 deg

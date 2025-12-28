@@ -1,0 +1,9 @@
+=== KALMAN FILTER TUNING RUN 3 REPORT ===
+Best Params Found: Q=0.001, R=0.1
+Comparision: New Median 21.6646 vs Run 2 22.5500
+
+Mean:   27.9919 deg
+Median: 21.6646 deg
+StdDev: 21.7295 deg
+Min:    0.4081 deg
+Max:    171.6319 deg

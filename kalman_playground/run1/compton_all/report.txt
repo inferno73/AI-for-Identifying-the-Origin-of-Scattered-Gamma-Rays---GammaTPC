@@ -1,0 +1,16 @@
+=== KALMAN FILTER FULL DATASET REPORT ===
+Data Source: C:\Users\Korisnik\PycharmProjects\gammaAIModel\data-samples\local_data\compton
+Files Search: Recursive
+Total Files Processed: 1500
+
+--- PARAMETERS ---
+dt: 1.0
+Q_scale: 0.1
+R_scale: 0.5
+
+--- RESULTS (Angle Error) ---
+Mean:   34.1410 deg
+Median: 23.1691 deg
+StdDev: 32.0265 deg
+Min:    0.3409 deg
+Max:    172.9436 deg

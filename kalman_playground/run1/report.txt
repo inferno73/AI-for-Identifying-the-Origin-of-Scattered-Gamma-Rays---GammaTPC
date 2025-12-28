@@ -1,0 +1,15 @@
+=== KALMAN FILTER BATCH TEST REPORT ===
+Data Source: C:\Users\Korisnik\PycharmProjects\gammaAIModel\data-samples\local_data\compton\E0003000\d03\data
+Files Processed: 100
+
+--- PARAMETERS ---
+dt: 1.0
+Q_scale: 0.1
+R_scale: 0.5
+
+--- RESULTS (Angle Error) ---
+Mean:   41.6850 deg
+Median: 30.5700 deg
+StdDev: 36.2277 deg
+Min:    1.3871 deg
+Max:    161.9512 deg

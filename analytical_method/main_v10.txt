@@ -1,0 +1,53 @@
+Phase 0: Finding the Candidate Endpoints
+Before any analysis can begin, the algorithm needs to identify two points that are the most likely candidates for being the start and end of the track.
+It picks an arbitrary point in the cloud (for simplicity, the very first point in the array).
+It finds the single point in the entire cloud that is furthest away from this starting point. This first point is now considered Endpoint A.
+It then finds the single point in the entire cloud that is furthest away from Endpoint A. This second point is now considered Endpoint B.
+Result: This robust "double-farthest-point" method gives us two candidate points, A and B, that lie at the extremities of the track.
+The algorithm now has its two candidates but has no idea which one is the head and which is the tail.
+
+Phase 1: The Head vs. Tail Decision (The V4 Scoring Engine)
+Origin prediction core. The goal is to calculate a "head score" for both Endpoint A and Endpoint B. The candidate with the higher score is declared the predicted_head.
+How it Works: For each candidate endpoint (A and B):
+    Define a Local Neighborhood: It finds the k_scoring (20) nearest neighbors to the endpoint.
+    Feature Engineering: It calculates three physically-motivated features based on this 20-point neighborhood:
+    Average Charge (avg_charge): The average charge of the 20 neighbors. A true head is expected to have a low average charge.
+    Linearity (linearity): It performs PCA on the 20 neighbors. The linearity is how much of the neighborhood's shape is explained by its single main axis.
+                            A true head is expected to be highly linear (a straight line).
+    Curvature (curvature): This is a clever feature that compares the neighborhood's local direction (from PCA) to the track's global direction (the vector from A to B).
+                            A true head should be pointing "away" from the other end, so its local and global directions should be aligned,
+                            resulting in a low curvature value.
+The Scoring Function: It combines these features using a weighted formula:
+    score = (0.5 * linearity) - (1.0 * avg_charge) - (1.5 * curvature)
+This formula is designed to give the highest score to an endpoint that is straight, faint, and aligned with the overall track.
+Result: The algorithm compares score_A and score_B. If score_A is higher, Endpoint A is declared the predicted_head. Otherwise, Endpoint B is.
+At the end of this phase, the algorithm has made its final decision on the origin's location. This is why your origin error is so good.
+
+Phase 2: High-Stability Direction Calculation (The V10 Innovation)
+Now that the algorithm has a confident predicted_head, it performs a second, more specialized analysis to find the direction.
+It knows that the simple PCA vector from the small, 20-point neighborhood in Phase 1 can be noisy.
+How it Works:
+Define a "Significant Segment": It goes back to the full point cloud and finds a new, much larger neighborhood of k_segment (50) points around the predicted_head.
+This larger cloud represents a more stable initial "segment" of the track.
+Find the Segment's True Axis: It performs a new PCA on this entire 50-point segment.
+The first principal component is the most dominant, stable average direction of this entire starting piece.
+This smooths out any initial "wobble" or noise that the smaller neighborhood might have been sensitive to.
+Orient the Vector: PCA provides an axis (a line), but its direction is arbitrary.
+The algorithm ensures the vector is pointing away from the head by comparing it to the global vector (from predicted_head to predicted_tail).
+If they are pointing in opposite directions, it flips the segment vector.
+Normalize: Finally, it converts this correctly-oriented vector into a unit vector.
+Result: The final output of this phase is the predicted_direction—a stable, physically motivated vector representing the initial trajectory of the particle.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Summary Flowchart
+Input: Raw Point Cloud (Positions, Charges)
+↓
+Phase 0: Find the two most distant points -> Endpoint A, Endpoint B
+↓
+Phase 1: For both A and B, analyze a 20-point neighborhood to calculate avg_charge, linearity, and curvature.
+Use a scoring function to make a final decision. -> predicted_head, predicted_tail
+↓
+Phase 2: Analyze a new, larger 50-point segment around the predicted_head. Use PCA on this segment to find its stable axis.
+Orient and normalize this axis. -> predicted_direction
+↓
+Output: (predicted_head, predicted_tail, predicted_direction)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

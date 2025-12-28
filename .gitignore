@@ -1,0 +1,13 @@
+bahrudin_model/
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+*.pth
+*.npz
+*.png
+*.jpg
+result/
+results/
+output-results/
+dataset_descriptor.npz

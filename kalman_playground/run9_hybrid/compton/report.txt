@@ -1,0 +1,17 @@
+=== KALMAN FILTER HYBRID REPORT (RUN 9 - COMPTON) ===
+Note: Run 9 (Cone Density + Local PCA + Bias=1.0)
+Data Source: C:\Users\Korisnik\PycharmProjects\gammaAIModel\data-samples\local_data\compton
+Files Processed: 1500
+
+--- PARAMETERS ---
+dt: 1.0
+Q_scale: 0.001
+R_scale: 0.1
+KF_Bias: 1.0
+
+--- RESULTS (Angle Error) ---
+Mean:   17.0897 deg
+Median: 13.7569 deg
+StdDev: 13.5333 deg
+Min:    0.0784 deg
+Max:    129.8283 deg

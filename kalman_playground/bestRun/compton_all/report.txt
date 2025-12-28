@@ -1,0 +1,16 @@
+=== KALMAN FILTER FULL DATASET REPORT (RUN 6) ===
+Note: Run 6 (Cone Density Correction)
+Data Source: C:\Users\Korisnik\PycharmProjects\gammaAIModel\data-samples\local_data\compton
+Files Processed: 1500
+
+--- PARAMETERS ---
+dt: 1.0
+Q_scale: 0.001
+R_scale: 0.1
+
+--- RESULTS (Angle Error) ---
+Mean:   22.2734 deg
+Median: 17.8828 deg
+StdDev: 17.1180 deg
+Min:    0.0784 deg
+Max:    129.8283 deg

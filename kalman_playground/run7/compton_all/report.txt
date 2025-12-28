@@ -1,0 +1,16 @@
+=== KALMAN FILTER FULL DATASET REPORT (RUN 7) ===
+Note: Run 7 (Cone Density + Local PCA Candidate)
+Data Source: C:\Users\Korisnik\PycharmProjects\gammaAIModel\data-samples\local_data\compton
+Files Processed: 300
+
+--- PARAMETERS ---
+dt: 1.0
+Q_scale: 0.001
+R_scale: 0.1
+
+--- RESULTS (Angle Error) ---
+Mean:   27.8405 deg
+Median: 24.2206 deg
+StdDev: 19.1274 deg
+Min:    1.8716 deg
+Max:    129.8283 deg

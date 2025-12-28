@@ -1,0 +1,16 @@
+=== KALMAN FILTER FULL DATASET REPORT (RUN 5) ===
+Note: Nearest Neighbor Sorting + Tuned Params
+Data Source: C:\Users\Korisnik\PycharmProjects\gammaAIModel\data-samples\local_data\compton
+Files Processed: 1500
+
+--- PARAMETERS ---
+dt: 1.0
+Q_scale: 0.001
+R_scale: 0.1
+
+--- RESULTS (Angle Error) ---
+Mean:   27.8222 deg
+Median: 21.7480 deg
+StdDev: 23.1123 deg
+Min:    0.0784 deg
+Max:    170.5733 deg

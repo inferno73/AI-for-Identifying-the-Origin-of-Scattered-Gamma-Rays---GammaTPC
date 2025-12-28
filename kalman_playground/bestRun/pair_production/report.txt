@@ -1,0 +1,16 @@
+=== KALMAN FILTER PAIR PRODUCTION REPORT (BEST RUN LOGIC) ===
+Note: Run 6 Logic (NN Sort + Cone Density)
+Data Source: C:\Users\Korisnik\PycharmProjects\gammaAIModel\data-samples\local_data\pair
+Files Processed: 157
+
+--- PARAMETERS ---
+dt: 1.0
+Q_scale: 0.001
+R_scale: 0.1
+
+--- RESULTS (Angle Error) ---
+Mean:   40.0361 deg
+Median: 31.8640 deg
+StdDev: 31.8869 deg
+Min:    2.6632 deg
+Max:    152.2740 deg

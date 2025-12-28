@@ -1,0 +1,17 @@
+=== KALMAN FILTER HYBRID REPORT (RUN 9 - PAIR) ===
+Note: Run 9 (Cone Density + Local PCA + Bias=1.0)
+Data Source: C:\Users\Korisnik\PycharmProjects\gammaAIModel\data-samples\local_data\pair
+Files Processed: 157
+
+--- PARAMETERS ---
+dt: 1.0
+Q_scale: 0.001
+R_scale: 0.1
+KF_Bias: 1.0
+
+--- RESULTS (Angle Error) ---
+Mean:   32.6985 deg
+Median: 20.9035 deg
+StdDev: 32.1768 deg
+Min:    2.6632 deg
+Max:    152.2740 deg
