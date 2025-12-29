@@ -2,8 +2,9 @@
 A research repository exploring advanced Analytical, Deep Learning, and Hybrid methods for reconstructing low-energy electron recoil tracks in gas-phase Time Projection Chambers (TPC), specifically for gamma-ray polarimetry applications.
 
 **Core Methodologies**
-**1. Unified Sparse 3D U-Net (Deep Learning) A specialized Deep Learning pipeline processing sparse 3D point clouds to accurately predict the electron interaction origin and initial direction.
-**
+
+**1. Unified Sparse 3D U-Net (Deep Learning) A specialized Deep Learning pipeline processing sparse 3D point clouds to accurately predict the electron interaction origin and initial direction.**
+
 Architecture: SpConv-based 3D U-Net backbone with multi-task regression heads.
 Technique: Utilizes Weighted Soft-ArgMax (Integral Regression) for sub-voxel origin localization and Transformer-based Pooling for direction estimation.
 Performance: Achieved state-of-the-art origin precision with <1.0 mm median error on high-diffusion tracks.
